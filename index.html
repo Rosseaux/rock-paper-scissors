@@ -4,72 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    
     <title>Document</title>
 </head>
 <body>
-    <script>
-        //Computer player choice generator
-        function computerPlay() {
-            computerChoice = parseInt(Math.random()*3);
-            if (computerChoice == 0) {
-                computerChoice = "rock";
-            }  
-            else if (computerChoice == 1) {
-                computerChoice = "paper";
-            }
-            else if (computerChoice == 2) {
-                computerChoice = "scissors";
-            }
-            return computerChoice;
-        }
-        
-        var playerSelection = undefined;
-        var computerSelection = undefined;
-        var compScore = 0;
-        var playerScore = 0;
-        var winner = "";
-
-        
-        function playRound(playerSelection, computerSelection) {
-            var computerSelection = computerPlay();
-            var playerSelection = window.prompt("Choose your weapon: ").toLowerCase();
-            
-            if (computerSelection === playerSelection) {
-                return "A draw!";
-            }
-            else if (playerSelection === "rock" && computerSelection === "scissors" ||
-                    playerSelection === "scissors" && computerSelection === "paper" ||
-                    playerSelection === "paper" && computerSelection === "rock") {
-                        playerScore++;
-                        winner = "Player wins!";
-                        
-                    }
-            else if (playerSelection === "rock" && computerSelection === "paper" ||
-                    playerSelection === "paper" && computerSelection === "scissors" ||
-                    playerSelection === "scissors" && computerSelection === "rock") {
-                        compScore++;
-                        winner = "Computer wins!";      
-            }
-            
-    }
-
-        function game() {
-            for (let times = 0; times < 5; times++) {
-                playRound(playerSelection, computerSelection);
-                console.log(winner);
-                console.log(playerScore);
-                console.log(compScore);
-            }
-        }
-
-        game();
-           
-        
-          
-        
-        
-        
-
-    </script>
+    <header>
+        <div class="score">score</div>
+        <div class="pc">
+            <div class="player">player: </div>
+            <div class="computer">computer: </div>
+        </div>
+    </header>
+    <div class="boxContainer">
+        <button id="rock" class="button" data-key="82">rock <br>(r)</button>
+        <button id="paper" class="button" data-key="80">paper <br>(p)</button>
+        <button id="scissors" class="button" data-key="83">scissors <br>(s)</button>
+    </div>
+    <script src="javascript.js"></script>
 </body>
 </html>
